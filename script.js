@@ -3,8 +3,8 @@
 // heartCount / flowerCount
 // ================================
 const backgroundConfig = {
-  heartCount: 22,
-  flowerCount: 20,
+  heartCount: 28,
+  flowerCount: 24,
 };
 
 // ================================
@@ -17,33 +17,33 @@ const backgroundConfig = {
 const galleryPhotos = [
   {
     path: "assets-img/photo-2.jpg", // ВСТАВ НАЗВУ ФАЙЛУ
-    caption: "Підпис до фото 2", // ВСТАВ ПІДПИС
-    orientation: "landscape",
+    caption: "Бажаю щоб життя було як безкінечний курорт", // ВСТАВ ПІДПИС
+    orientation: "portrait",
   },
   {
     path: "assets-img/photo-3.jpg",
-    caption: "Підпис до фото 3",
+    caption: "Нехай очі завжди світяться щастям",
     orientation: "portrait",
   },
   {
     path: "assets-img/photo-4.jpg",
-    caption: "Підпис до фото 4",
-    orientation: "landscape",
+    caption: "А поруч завжди будуть вірні друзі та любляча родина",
+    orientation: "portrait",
   },
   {
     path: "assets-img/photo-5.jpg",
-    caption: "Підпис до фото 5",
+    caption: "Бажаю, щоб кожен день приносив натхнення, енергію та щирі посмішки",
     orientation: "portrait",
   },
   {
     path: "assets-img/photo-6.jpg",
-    caption: "Підпис до фото 6",
-    orientation: "landscape",
+    caption: "Нехай кожен день твій буде як щаслива казка",
+    orientation: "portrait",
   },
   {
     path: "assets-img/photo-7.jpg",
-    caption: "Підпис до фото 7",
-    orientation: "portrait",
+    caption: "Залишайся такою ж квітучою та життєрадісною!",
+    orientation: "landscape",
   },
 ];
 
