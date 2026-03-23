@@ -18,7 +18,7 @@
 
     <main class="page">
       <section class="hero">
-        <h1 class="hero__title">З ювілеєм, мамо 💖</h1>
+        <h1 class="hero__title">З Днем народження, мамуся 💖</h1>
         <p class="hero__subtitle">Натисни на конверт — усередині лист із любов'ю</p>
       </section>
 
@@ -32,7 +32,7 @@
         <!-- ВСТАВ СЮДИ ТОЧНИЙ ТЕКСТ ПРИВІТАННЯ БЕЗ ЗМІН -->
         <div class="letter-content" id="greetingText">
           <p>
-            [Моя найкраща мамуся! У твої 50 я хочу побажати тобі ніколи не втрачати іскринку в очах. Нехай твоя жіночність, мудрість та доброта приносять тобі лише радість. Дякую тобі за кожен день мого життя, за твою безмежну підтримку. Залишайся такою ж квітучою та неймовірною!]
+            Моя найкраща мамуся! У твої 50 я хочу побажати тобі ніколи не втрачати іскринку в очах. Нехай твоя жіночність, мудрість та доброта приносять тобі лише радість. Дякую тобі за кожен день мого життя, за твою безмежну підтримку. Залишайся такою ж квітучою та неймовірною!
           </p>
         </div>
       </div>
@@ -85,7 +85,7 @@
       </section>
 
       <section class="main-photo" aria-label="Головна фотографія">
-        <h2 class="section-title">З Днем народження, мамусю!</h2>
+        <h2 class="section-title">З ювілеєм!</h2>
         <!-- ДЕ МІНЯТИ ГОЛОВНЕ ФОТО: src у цьому img -->
         <figure class="photo-card photo-card--main" id="mainPhotoCard">
           <img src="assets-img/main-photo.jpg" alt="Головне фото мами" loading="lazy" />
@@ -95,19 +95,24 @@
       </section>
 
       <section class="gallery-section" aria-label="Галерея фотографій">
-        <h2 class="section-title">Наші найтепліші спогади</h2>
-        <div class="gallery-shell">
-          <button class="gallery-nav gallery-nav--prev" id="prevSlide" type="button" aria-label="Попереднє фото">
-            ‹
-          </button>
-          <div class="gallery-viewport" id="galleryViewport">
-            <div class="gallery-track" id="galleryTrack"></div>
-          </div>
-          <button class="gallery-nav gallery-nav--next" id="nextSlide" type="button" aria-label="Наступне фото">
-            ›
-          </button>
-        </div>
-      </section>
+  <h2 class="section-title">Наші найтепліші спогади</h2>
+
+  <div class="gallery-shell">
+    <button class="gallery-nav gallery-nav--prev" id="prevSlide" type="button" aria-label="Попереднє фото">
+      ‹
+    </button>
+
+    <div class="gallery-viewport">
+      <div class="gallery-track" id="galleryTrack"></div>
+    </div>
+
+    <button class="gallery-nav gallery-nav--next" id="nextSlide" type="button" aria-label="Наступне фото">
+      ›
+    </button>
+  </div>
+
+  <div class="gallery-dots" id="galleryDots"></div>
+</section>
 
       <section class="cat-section" aria-label="Кіт і любов">
         <div class="cat-wrap">

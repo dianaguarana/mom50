@@ -3,8 +3,8 @@
 // heartCount / flowerCount
 // ================================
 const backgroundConfig = {
-  heartCount: 28,
-  flowerCount: 24,
+  heartCount: 24,
+  flowerCount: 22,
 };
 
 // ================================
@@ -48,21 +48,8 @@ const galleryPhotos = [
 ];
 
 const bgDecor = document.getElementById("bgDecor");
-/* =========================
-   WORKING ENVELOPE LOGIC
-   ========================= */
-
-const envelopeStage = document.getElementById("envelopeStage");
+const envelopeWrap = document.getElementById("envelopeWrap");
 const envelopeBtn = document.getElementById("envelopeBtn");
-const letterCard = document.getElementById("letterCard");
-
-if (envelopeStage && envelopeBtn && letterCard) {
-  envelopeBtn.addEventListener("click", () => {
-    const isOpen = envelopeStage.classList.toggle("open");
-    envelopeBtn.setAttribute("aria-expanded", String(isOpen));
-    letterCard.setAttribute("aria-hidden", String(!isOpen));
-  });
-}
 const track = document.getElementById("galleryTrack");
 const viewport = document.getElementById("galleryViewport");
 const prevBtn = document.getElementById("prevSlide");
@@ -184,18 +171,146 @@ nextBtn.addEventListener("click", () => {
 envelopeBtn.addEventListener("click", openLetter);
 popperBtn.addEventListener("click", runPopper);
 
-viewport.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
+/* =========================
+   LIGHT GALLERY
+   ========================= */
 
-viewport.addEventListener("touchmove", (e) => {
-  deltaX = e.touches[0].clientX - startX;
-});
+const galleryTrack = document.getElementById("galleryTrack");
+const galleryDots = document.getElementById("galleryDots");
+const prevSlideBtn = document.getElementById("prevSlide");
+const nextSlideBtn = document.getElementById("nextSlide");
 
-viewport.addEventListener("touchend", () => {
-  if (Math.abs(deltaX) > 45) {
-    currentIndex = deltaX < 0 ? clampIndex(currentIndex + 1) : clampIndex(currentIndex - 1);
-    updateSlider();
+let currentGalleryIndex = 0;
+
+const galleryPhotos = [
+  {
+    src: "assets-img/photo2.jpg",
+    alt: "Фото 2",
+    caption: "Тут буде підпис",
+    orientation: "portrait"
+  },
+  {
+    src: "assets-img/photo3.jpg",
+    alt: "Фото 3",
+    caption: "Тут буде підпис",
+    orientation: "landscape"
+  },
+  {
+    src: "assets-img/photo4.jpg",
+    alt: "Фото 4",
+    caption: "Тут буде підпис",
+    orientation: "portrait"
+  },
+  {
+    src: "assets-img/photo5.jpg",
+    alt: "Фото 5",
+    caption: "Тут буде підпис",
+    orientation: "landscape"
+  },
+  {
+    src: "assets-img/photo6.jpg",
+    alt: "Фото 6",
+    caption: "Тут буде підпис",
+    orientation: "portrait"
+  },
+  {
+    src: "assets-img/photo7.jpg",
+    alt: "Фото 7",
+    caption: "Тут буде підпис",
+    orientation: "square"
+  }
+];
+
+function escapeHtml(text) {
+  return String(text)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderGallery() {
+  if (!galleryTrack || !galleryDots) return;
+
+  galleryTrack.innerHTML = "";
+  galleryDots.innerHTML = "";
+
+  galleryPhotos.forEach((photo, index) => {
+    const slide = document.createElement("div");
+    slide.className = "gallery-slide";
+
+    slide.innerHTML = `
+      <article class="gallery-card ${photo.orientation || "portrait"}">
+        <div class="gallery-media-wrap">
+          <img
+            class="gallery-media"
+            src="${photo.src}"
+            alt="${escapeHtml(photo.alt)}"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="gallery-caption">${escapeHtml(photo.caption || "")}</div>
+      </article>
+    `;
+
+    galleryTrack.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.className = "gallery-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Перейти до фото ${index + 1}`);
+    dot.addEventListener("click", () => {
+      currentGalleryIndex = index;
+      updateGallery();
+    });
+
+    galleryDots.appendChild(dot);
+  });
+
+  updateGallery();
+}
+
+function updateGallery() {
+  if (!galleryTrack) return;
+
+  galleryTrack.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
+
+  const dots = galleryDots.querySelectorAll(".gallery-dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentGalleryIndex);
+  });
+
+  if (prevSlideBtn) {
+    prevSlideBtn.disabled = currentGalleryIndex === 0;
+  }
+
+  if (nextSlideBtn) {
+    nextSlideBtn.disabled = currentGalleryIndex === galleryPhotos.length - 1;
+  }
+}
+
+if (prevSlideBtn) {
+  prevSlideBtn.addEventListener("click", () => {
+    if (currentGalleryIndex > 0) {
+      currentGalleryIndex -= 1;
+      updateGallery();
+    }
+  });
+}
+
+if (nextSlideBtn) {
+  nextSlideBtn.addEventListener("click", () => {
+    if (currentGalleryIndex < galleryPhotos.length - 1) {
+      currentGalleryIndex += 1;
+      updateGallery();
+    }
+  });
+}
+
+renderGallery();
+
   }
   startX = 0;
   deltaX = 0;
