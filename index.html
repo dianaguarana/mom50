@@ -23,36 +23,60 @@
       </section>
 
       <section class="envelope-section" aria-label="Лист-привітання">
-        <div class="envelope-wrap" id="envelopeWrap">
-          <article class="letter" id="letterCard">
-            <h2 class="letter__title">Для найріднішої у світі</h2>
-            <!-- ТУТ ВСТАВЛЕНО ТОЧНИЙ ТЕКСТ ПРИВІТАННЯ (НЕ ЗМІНЮВАТИ) -->
-            <div class="letter__content" id="greetingText">
-              [Моя найкраща мамуся! У твої 50 я хочу побажати тобі ніколи не втрачати іскринку в очах. Нехай твоя жіночність, мудрість та доброта приносять тобі лише радість. Дякую тобі за кожен день мого життя, за твою безмежну підтримку. Залишайся такою ж квітучою та неймовірною!]
-            </div>
-          </article>
+  <div class="envelope-stage" id="envelopeStage">
+    <article class="letter-card" id="letterCard" aria-hidden="true">
+      <div class="letter-paper">
+        <div class="letter-paper__shine"></div>
+        <h2 class="letter-title">Для найріднішої у світі</h2>
 
-          <button class="envelope" id="envelopeBtn" type="button" aria-expanded="false" aria-controls="letterCard">
-            <span class="envelope__flap"></span>
-            <span class="envelope__front"></span>
-            <span class="envelope__heart" aria-hidden="true">
-              <svg viewBox="0 0 100 90" role="img" aria-label="Серце">
-                <defs>
-                  <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#ff6b81" />
-                    <stop offset="100%" stop-color="#c1121f" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M50 84C48.5 82.7 47.1 81.5 45.8 80.4C20.2 58.7 4 44.9 4 28.5C4 14.7 15.1 4 28.9 4C36.8 4 44.4 7.7 50 13.5C55.6 7.7 63.2 4 71.1 4C84.9 4 96 14.7 96 28.5C96 44.9 79.8 58.7 54.2 80.4C52.9 81.5 51.5 82.7 50 84Z"
-                  fill="url(#heartGradient)"
-                />
-              </svg>
-            </span>
-            <span class="sr-only">Відкрити лист</span>
-          </button>
+        <!-- ВСТАВ СЮДИ ТОЧНИЙ ТЕКСТ ПРИВІТАННЯ БЕЗ ЗМІН -->
+        <div class="letter-content" id="greetingText">
+          <p>
+            [Моя найкраща мамуся! У твої 50 я хочу побажати тобі ніколи не втрачати іскринку в очах. Нехай твоя жіночність, мудрість та доброта приносять тобі лише радість. Дякую тобі за кожен день мого життя, за твою безмежну підтримку. Залишайся такою ж квітучою та неймовірною!]
+          </p>
         </div>
-      </section>
+      </div>
+    </article>
+
+    <button
+      class="envelope-button"
+      id="envelopeBtn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="letterCard"
+    >
+      <span class="envelope-shadow"></span>
+
+      <div class="envelope-shell">
+        <div class="envelope-back"></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+
+        <div class="envelope-heart" aria-hidden="true">
+          <svg viewBox="0 0 64 64" class="heart-svg">
+            <defs>
+              <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff5574"></stop>
+                <stop offset="100%" stop-color="#cf1f45"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              d="M32 56
+                 C30 54, 10 40, 10 24
+                 C10 15, 17 9, 25 9
+                 C30 9, 34 12, 36 17
+                 C38 12, 42 9, 47 9
+                 C55 9, 62 15, 62 24
+                 C62 40, 42 54, 40 56
+                 Z"
+              fill="url(#heartGradient)"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+</section>
 
       <section class="party-pop" aria-label="Святкова хлопушка">
         <h2 class="section-title">Натисни для святкового настрою ✨</h2>

@@ -48,8 +48,21 @@ const galleryPhotos = [
 ];
 
 const bgDecor = document.getElementById("bgDecor");
-const envelopeWrap = document.getElementById("envelopeWrap");
+/* =========================
+   WORKING ENVELOPE LOGIC
+   ========================= */
+
+const envelopeStage = document.getElementById("envelopeStage");
 const envelopeBtn = document.getElementById("envelopeBtn");
+const letterCard = document.getElementById("letterCard");
+
+if (envelopeStage && envelopeBtn && letterCard) {
+  envelopeBtn.addEventListener("click", () => {
+    const isOpen = envelopeStage.classList.toggle("open");
+    envelopeBtn.setAttribute("aria-expanded", String(isOpen));
+    letterCard.setAttribute("aria-hidden", String(!isOpen));
+  });
+}
 const track = document.getElementById("galleryTrack");
 const viewport = document.getElementById("galleryViewport");
 const prevBtn = document.getElementById("prevSlide");
